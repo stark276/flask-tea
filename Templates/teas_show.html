@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href='/'>Back</a>
+
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+
+		<!--Name -->
+		<h1 class="text-danger">{{ tea.tea_name }}</h1>
+
+		<!--Picture -->
+		<div class="card"><div class="card-body">
+            <img width="400"  height="400" src="/static/{{tea.link}}.png">
+        </div></div>
+        
+
+
+		<!-- Description of the tea -->
+		<p class="text-danger"><bold><strong>{{ tea.description }}</strong></bold></p>
+
+		<!-- tea Price -->
+		<h2><italic>${{ tea.price}}</italic></h2>
+
+
+		<p><a href="/teas/{{ tea._id }}/edit"><button  class="btn btn-primary">Edit</button></a></p>
+		<p><form method="POST" action="/teas/{{tea._id}}/delete">
+			<input type='hidden' name='_method' value='DELETE'>
+
+			<button class="btn btn-primary" type="submit">Delete</button>
+		</form></p>
+	</div>
+</div>
+{% endblock %}

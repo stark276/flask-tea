@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>TeaChai <strong>Чай для хорошего настроения и бодрости</strong></h1>
+   
+<div class="row">
+  {% for tea in teas %}
+      <div class="col-md-4">
+          <h2><a href="/teas/{{tea._id}}">{{ tea.domain }}</a></h2>
+              <img width="240" height="240" src="/static/{{tea.domain}}.png">
+              <hr>
+
+          <a href="/teas/{{tea._id}}">{{ tea.description }}</a>
+          <br />
+          <p>${{ tea.price }}</p>
+          
+
+      </div>
+  {% endfor %}
+</div>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2019 Copyright:
+          <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+      
+      </footer>
+      <!-- Footer -->
+
+{% endblock %}
